@@ -26,15 +26,15 @@ const CartProvider = (props) => {
     setItems(items.filter((item) => item.id !== id));
   };
 
-  const updateCartQuantity = (id, qnt) => {
+  const updateCartQuantity = (id) => {
     setItems((prevItems) => {
       const updatedItems = prevItems.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity - qnt } : item
+        item.id === id ? { ...item, quantity: item.quantity - 1 } : item
       );
       // Remove the item from the cart if the quantity becomes zero
       return updatedItems.filter((item) => item.quantity > 0);
     });
-    listCxt.updateQuantity(id, -qnt);
+    listCxt.updateQuantity(id, -1);// updateQuantity me - h already to -1 pass kiye - - + hoga
   };
 
   const cartContext = {

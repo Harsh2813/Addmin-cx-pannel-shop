@@ -16,13 +16,13 @@ const App = () => {
   };
 
   return (
-    <CartProvider>
-      <ListProvider>
+    <ListProvider>
+      <CartProvider>
         <MedicineForm onShowCart={showCartHandler}/>
         <MedicineList />
         {cartShown && <Cart onHideCart={hideCartHandler}/>}
-      </ListProvider>
-    </CartProvider>
+      </CartProvider>
+    </ListProvider>
   );
 };
 
