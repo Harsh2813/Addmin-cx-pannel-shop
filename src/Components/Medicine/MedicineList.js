@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ListContext from "../../Store/list-context";
 import CartContext from "../../Store/cart-context";
 import Card from "../UI/Card";
@@ -7,6 +7,7 @@ import './MedicineList.module.css'
 const MedicineList = () => {
   const listCxt = useContext(ListContext);
   const cartCxt = useContext(CartContext);
+
 
   const addItemtoCart = (item, qnt) => {
     //event.preventDefault();
@@ -34,9 +35,6 @@ const MedicineList = () => {
                 </button>
                 <button onClick={() => addItemtoCart(item, 2)}>
                   Add 2 to Cart
-                </button>
-                <button onClick={() => addItemtoCart(item, 5)}>
-                  Add 5 to Cart
                 </button>
               </li>
             ))}

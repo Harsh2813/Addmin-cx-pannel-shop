@@ -26,7 +26,7 @@ const MedicineForm = (props) => {
         setQuantity(event.target.value);
     }
 
-    const submitHandler =(event) => {
+    const submitHandler =async(event) => {
         event.preventDefault();
         const data = {
             id: Math.random().toString(),
@@ -35,11 +35,12 @@ const MedicineForm = (props) => {
             price: price,
             quantity: quantity,
         }
-        listCxt.addData(data);
+        await listCxt.addData(data);
         setName('');
         setDescription('');
         setPrice('');
         setQuantity('');
+        
     }
 
     let cartQuantity = 0;
@@ -52,7 +53,7 @@ const MedicineForm = (props) => {
             <div>
                 <header><button onClick={props.onShowCart}>{`Cart${cartQuantity}`}</button></header>
                 <form onSubmit={submitHandler}>
-                    <label htmlFor="medicine">Medicine</label>
+                    <label htmlFor="medicine">Candy</label>
                     <input id="medicine" type="text" value={name} onChange={medicineChangeHandler}></input>
                     <label htmlFor="Description">Description</label>
                     <input id="Description" type="text" value={description} onChange={descriptionChangeHandler}></input>
